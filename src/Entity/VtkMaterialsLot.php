@@ -38,7 +38,7 @@ class VtkMaterialsLot
     private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'lots')]
-    private ?VtkCustomersAsk $ask = null;
+    private ?VtkCustomerAsk $ask = null;
 
     #[ORM\ManyToOne(inversedBy: 'lots')]
     private ?VtkMaterialsType $type = null;
@@ -143,12 +143,12 @@ class VtkMaterialsLot
         return $this;
     }
 
-    public function getAsk(): ?VtkCustomersAsk
+    public function getAsk(): ?VtkCustomerAsk
     {
         return $this->ask;
     }
 
-    public function setAsk(?VtkCustomersAsk $ask): static
+    public function setAsk(?VtkCustomerAsk $ask): static
     {
         $this->ask = $ask;
 

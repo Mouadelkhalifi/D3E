@@ -26,16 +26,16 @@ class VtkDocument
     #[ORM\Column]
     private ?\DateTimeImmutable $uploadedAt = null;
 
-    #[ORM\ManyToOne(inversedBy: 'documents')]
-    private ?VtkCustomersAsk $ask = null;
+    #[ORM\ManyToOne(inversedBy: 'document')]
+    private ?VtkCustomerAsk $ask = null;
 
-    #[ORM\ManyToOne(inversedBy: 'documents')]
+    #[ORM\ManyToOne(inversedBy: 'document')]
     private ?VtkMaterialsLot $lot = null;
 
-    #[ORM\ManyToOne(inversedBy: 'documents')]
+    #[ORM\ManyToOne(inversedBy: 'document')]
     private ?VtkCustomer $customer = null;
 
-    #[ORM\ManyToOne(inversedBy: 'documents')]
+    #[ORM\ManyToOne(inversedBy: 'document')]
     private ?VtkUser $uploadedBy = null;
 
     public function getId(): ?int
@@ -91,12 +91,12 @@ class VtkDocument
         return $this;
     }
 
-    public function getAsk(): ?VtkCustomersAsk
+    public function getAsk(): ?VtkCustomerAsk
     {
         return $this->ask;
     }
 
-    public function setAsk(?VtkCustomersAsk $ask): static
+    public function setAsk(?VtkCustomerAsk $ask): static
     {
         $this->ask = $ask;
 
