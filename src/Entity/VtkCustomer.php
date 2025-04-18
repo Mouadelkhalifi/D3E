@@ -50,10 +50,10 @@ class VtkCustomer
     private ?VtkContact $primaryContact = null;
 
     /**
-     * @var Collection<int, VtkCustomersAsk>
+     * @var Collection<int, VtkCustomerAsk>
      */
-    #[ORM\OneToMany(targetEntity: VtkCustomersAsk::class, mappedBy: 'customer')]
-    private Collection $vtkCustomersAsks;
+    #[ORM\OneToMany(targetEntity: VtkCustomerAsk::class, mappedBy: 'customer')]
+    private Collection $vtkCustomerAsks;
 
     /**
      * @var Collection<int, VtkDocument>
@@ -64,7 +64,7 @@ class VtkCustomer
     public function __construct()
     {
         $this->vtkContacts = new ArrayCollection();
-        $this->vtkCustomersAsks = new ArrayCollection();
+        $this->vtkCustomerAsks = new ArrayCollection();
         $this->documents = new ArrayCollection();
     }
 
@@ -212,29 +212,29 @@ class VtkCustomer
     }
 
     /**
-     * @return Collection<int, VtkCustomersAsk>
+     * @return Collection<int, VtkCustomerAsk>
      */
-    public function getVtkCustomersAsks(): Collection
+    public function getVtkCustomerAsks(): Collection
     {
-        return $this->vtkCustomersAsks;
+        return $this->vtkCustomerAsks;
     }
 
-    public function addVtkCustomersAsk(VtkCustomersAsk $vtkCustomersAsk): static
+    public function addVtkCustomerAsk(VtkCustomerAsk $vtkCustomerAsk): static
     {
-        if (!$this->vtkCustomersAsks->contains($vtkCustomersAsk)) {
-            $this->vtkCustomersAsks->add($vtkCustomersAsk);
-            $vtkCustomersAsk->setCustomer($this);
+        if (!$this->vtkCustomerAsks->contains($vtkCustomerAsk)) {
+            $this->vtkCustomerAsks->add($vtkCustomerAsk);
+            $vtkCustomerAsk->setCustomer($this);
         }
 
         return $this;
     }
 
-    public function removeVtkCustomersAsk(VtkCustomersAsk $vtkCustomersAsk): static
+    public function removeVtkCustomerAsk(VtkCustomerAsk $vtkCustomerAsk): static
     {
-        if ($this->vtkCustomersAsks->removeElement($vtkCustomersAsk)) {
+        if ($this->vtkCustomerAsks->removeElement($vtkCustomerAsk)) {
             // set the owning side to null (unless already changed)
-            if ($vtkCustomersAsk->getCustomer() === $this) {
-                $vtkCustomersAsk->setCustomer(null);
+            if ($vtkCustomerAsk->getCustomer() === $this) {
+                $vtkCustomerAsk->setCustomer(null);
             }
         }
 
