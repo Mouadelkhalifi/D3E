@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\VtkDocumentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: VtkDocumentRepository::class)]
+#[ApiResource]
 class VtkDocument
 {
     #[ORM\Id]
@@ -26,16 +29,16 @@ class VtkDocument
     #[ORM\Column]
     private ?\DateTimeImmutable $uploadedAt = null;
 
-    #[ORM\ManyToOne(inversedBy: 'document')]
+    #[ORM\ManyToOne(inversedBy: 'documents')]
     private ?VtkCustomerAsk $ask = null;
 
-    #[ORM\ManyToOne(inversedBy: 'document')]
+    #[ORM\ManyToOne(inversedBy: 'documents')]
     private ?VtkMaterialsLot $lot = null;
 
-    #[ORM\ManyToOne(inversedBy: 'document')]
+    #[ORM\ManyToOne(inversedBy: 'documents')]
     private ?VtkCustomer $customer = null;
 
-    #[ORM\ManyToOne(inversedBy: 'document')]
+    #[ORM\ManyToOne(inversedBy: 'documents')]
     private ?VtkUser $uploadedBy = null;
 
     public function getId(): ?int
