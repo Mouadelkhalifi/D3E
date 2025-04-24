@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\VtkAuditLogRepository;
 use Doctrine\DBAL\Types\Types;
+use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: VtkAuditLogRepository::class)]
+#[ApiResource]
 class VtkAuditLog
 {
     #[ORM\Id]

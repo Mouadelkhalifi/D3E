@@ -3,3 +3,12 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+api_login:
+    path: /api/login
+    methods: [POST]
+api_login_check:
+    path: /api/auth/login_check
+    methods: [POST]
+    stateless: true
+    defaults:
+        _controller: App\Controller\AuthController::login
